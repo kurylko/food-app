@@ -99,8 +99,8 @@ const dummyMeals = [
 'cook',
 'eat'
     ],
-    isGlutenFree: true,
-    isLactoseFree: true,
+    isGlutenFree: false,
+    isLactoseFree: false,
     isVegan: false,
     isVegetarian: false
     ),
@@ -123,10 +123,10 @@ const dummyMeals = [
 'cook',
 'eat'
     ],
-    isGlutenFree: true,
-    isLactoseFree: true,
-    isVegan: false,
-    isVegetarian: false
+    isGlutenFree: false,
+    isLactoseFree: false,
+    isVegan: true,
+    isVegetarian: true
     ),
 
     Meal(
@@ -172,7 +172,7 @@ const dummyMeals = [
 'cook',
 'eat'
     ],
-    isGlutenFree: true,
+    isGlutenFree: false,
     isLactoseFree: true,
     isVegan: false,
     isVegetarian: false
@@ -195,9 +195,9 @@ const dummyMeals = [
 'cook',
 'eat'
     ],
-    isGlutenFree: true,
-    isLactoseFree: true,
+    isGlutenFree: false,
+    isLactoseFree: false,
     isVegan: false,
-    isVegetarian: false
+    isVegetarian: true
     ),
 ];
