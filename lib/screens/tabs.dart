@@ -57,7 +57,7 @@ class _TabsScreenState extends ConsumerState<TabsScreen> {
       //onToggleFavourite: _toggleMealFavorite,
       availableMeals: availableMeals,
     );
-    var activePageTitle = 'Categories';
+    //var activePageTitle = 'Categories';
 
     if (_selectedPageIndex == 1) {
       final favoriteMeals = ref.watch(favouriteMealsProvider);
@@ -66,7 +66,7 @@ class _TabsScreenState extends ConsumerState<TabsScreen> {
         meals: favoriteMeals,
       );
       //onToggleFavourite: _toggleMealFavorite);
-      activePageTitle = 'Your favorites';
+      //activePageTitle = 'Your favorites';
     }
 
     return Scaffold(
