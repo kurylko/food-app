@@ -22,3 +22,4 @@ final favouriteMealsProvider =
     StateNotifierProvider<FavoriteMealsNotifier, List<Meal>>(
   (ref) => FavoriteMealsNotifier(),
 );
+

@@ -5,7 +5,6 @@ import 'package:food_app/screens/categories.dart';
 import 'package:food_app/screens/filters.dart';
 import 'package:food_app/screens/meals.dart';
 import 'package:food_app/widgets/main_drawer.dart';
-import 'package:food_app/providers/meals_provider.dart';
 import 'package:food_app/providers/favorites_provider.dart';
 import 'package:food_app/providers/filters_provider.dart';
 
@@ -29,8 +28,6 @@ class TabsScreen extends ConsumerStatefulWidget {
 class _TabsScreenState extends ConsumerState<TabsScreen> {
   int _selectedPageIndex = 0;
 
-  // Map<Filter, bool> _selectedFilters = kInitialFilters;
-
   void _selectPage(int index) {
     setState(() {
       _selectedPageIndex = index;
@@ -46,59 +43,15 @@ class _TabsScreenState extends ConsumerState<TabsScreen> {
           builder: (ctx) => const FiltersScreen(),
         ),
       );
-
-      // setState(() {
-      //   _selectedFilters = result ?? kInitialFilters;
-      // });
     }
   }
 
-  //final List<Meal> _favoriteMeals = [];
-
-  // void _showInfoMessage(String message) {
-  //   ScaffoldMessenger.of(context).clearSnackBars();
-  //   ScaffoldMessenger.of(context)
-  //       .showSnackBar(SnackBar(content: Text(message)));
-  // }
-
-//Checking if meal is in Favourites
-  // void _toggleMealFavorite(Meal meal) {
-  //   final isExisting = _favoriteMeals.contains(meal); //cross-widget state
-  //   if (isExisting) {
-  //     setState(() {
-  //       _favoriteMeals.remove(meal);
-  //     });
-  //     _showInfoMessage('Meal is not favourite');
-  //   } else {
-  //     setState(() {
-  //       _favoriteMeals.add(meal);
-  //       _showInfoMessage('Marked as favourite');
-  //     });
-  //   }
-  // }
+  
 
   @override
   Widget build(BuildContext context) {
-    final meals = ref.watch(
-        mealsProvider); //re-executing build method when provider is changed
-
-    final activeFilters = ref.watch(filtersProvider);
-
-    final availableMeals = meals.where((meal) {
-      if (activeFilters[Filter.glutenFree]! && !meal.isGlutenFree) {
-        return false;
-      }
-      if (activeFilters[Filter.lactoseFree]! && !meal.isLactoseFree) {
-        return false;
-      }
-      if (activeFilters[Filter.vegan]! && !meal.isVegan) {
-        return false;
-      }
-      if (activeFilters[Filter.vegeterian]! && !meal.isVegetarian) {
-        return false;
-      }
-      return true;
-    }).toList();
+    
+    final availableMeals = ref.watch(filteredMealsProvider);
 
     Widget activePage = CategoriesScreen(
       //onToggleFavourite: _toggleMealFavorite,
